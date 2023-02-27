@@ -68,7 +68,7 @@ exports.ubahMhs = function (req, res) {
         console.log(err);
       } else {
         response.ok("Berhasil Ubah Data", res);
-      }
+      } 
     });
 };
 
@@ -85,3 +85,15 @@ exports.hapusMhs = function(req, res) {
         }
       });
 }
+
+//menampilkan matakuliah group
+exports.tampilkanMakul = function(req, res) {
+    connection.query('SELECT mahasiswa.id_mhs, mahasiswa.nama, mahasiswa.nim, mahasiswa.jurusan,matakuliah.matakuliah, matakuliah.sks FROM krs JOIN matakuliah JOIN mahasiswa WHERE krs.id_makul = matakuliah.id_makul AND krs.id_mhs = mahasiswa.id_mhs ORDER BY mahasiswa.id_mhs',
+        function (err, rows, fields){
+            if (err) {
+                console.log(err);
+              } else {
+                response.oknested(rows, res);
+              }
+        })
+};
