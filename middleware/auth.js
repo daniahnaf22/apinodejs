@@ -1,7 +1,7 @@
 var connection = require("../koneksi");
 var mysql = require("mysql");
 var md5 = require("md5");
-var response = require("../rest");
+var response = require("../res");
 var jwt = require("jsonwebtoken");
 var config = require("../config/secret");
 var ip = require("ip");
@@ -92,3 +92,7 @@ exports.login = function (req, res) {
     }
   });
 };
+
+exports.halamanSecret = function(req, res){
+    response.ok("Halaman ini hanya untuk user dengan role 2", res)
+}
