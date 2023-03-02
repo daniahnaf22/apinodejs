@@ -1,7 +1,7 @@
 "use strict";
 
 module.exports = function (app) {
-  var jsonku = require("./controller");
+  var jsonku = require("./controller/MhsController");
 
   app.route("/").get(jsonku.index);
   app.route("/show").get(jsonku.tampilkanMhs);
